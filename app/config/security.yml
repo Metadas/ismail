@@ -56,7 +56,7 @@ security:
 
         plateforme_client:
             pattern:    ^/espace-client/
-            anonymous: false
+            anonymous: true
             provider:  client
             form_login:
                 login_path: login-client

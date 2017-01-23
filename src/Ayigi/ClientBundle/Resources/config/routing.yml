@@ -8,6 +8,10 @@ ayigi_client_homepage:
     path:     /
     defaults: { _controller: AyigiClientBundle:Client:index }
 
+ayigi_client_liste_service:
+    path:     /liste-service/
+    defaults: { _controller: AyigiClientBundle:Client:listeService }
+
 #---------------- Manage customer account ---------------------------------
 
 ayigi_client_historique_user:

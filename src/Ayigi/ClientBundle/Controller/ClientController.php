@@ -31,7 +31,7 @@ class ClientController extends Controller
     {
     	$em = $this->getDoctrine()->getManager();
     	
-    	$client = $em->getRepository('AyigiClientBundle:Client')->find(1);
+    	$client = $em->getRepository('AyigiClientBundle:Client')->find(2);
 
         return $this->redirect($this->generateUrl('ayigi_client_historique_user', array(
                     'id' => $client->getId(),
@@ -381,5 +381,25 @@ class ClientController extends Controller
         }
         
         return $this->redirect($this->generateUrl('ayigi_client_homepage'));
+    }
+
+
+    public function listeServiceAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $services = new Service();
+
+        $services = $em->getRepository('AyigiPlateFormeBundle:Service')->findAll();
+
+        if ($services != null)
+        {
+            return $this->render('AyigiClientBundle:Client:listeService.html.twig', array(
+                'services'  => $services,
+            ));
+        }
+        else
+        {
+            return $this->redirect($this->generateUrl('ayigi_client_homepage'));
+        }
     }
 }
